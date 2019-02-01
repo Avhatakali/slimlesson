@@ -1,0 +1,8 @@
+= form_with(model: @task, local: true) do |form|
+
+  = form.label :Task
+  br
+  = form.text_field :task_name
+
+  br
+  = form.submit

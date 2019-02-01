@@ -1,0 +1,17 @@
+    h2 To Do
+    p Here are all your tasks
+
+    table
+          tr
+            th Id
+            th Todo
+            th Done
+
+          - @task.subtasks.done().each do |subtask|
+             tr
+                td
+                  = subtask.id
+                td
+                  = subtask.name
+                td
+                  = subtask.done

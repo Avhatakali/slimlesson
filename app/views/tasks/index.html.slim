@@ -1,0 +1,24 @@
+h3
+    | Todo tasks
+= link_to 'new', new_task_path
+
+table
+      tr
+        th Id
+        th Todo
+
+      - @tasks.each do |task|
+         tr
+            td
+              = task.id
+            td
+              = task.task_name
+            td
+              = link_to 'Show', task_path(task)
+            td
+              = link_to 'Edit', edit_task_path(task)
+            td
+              = link_to 'Add', new_task_subtask_path(task)
+            td
+              = link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Confirm delete'}
+           

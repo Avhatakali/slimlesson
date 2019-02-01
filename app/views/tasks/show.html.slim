@@ -1,0 +1,30 @@
+h2
+  | entered info
+
+p = " #{@task.task_name} "
+p = " #{@task.id} "
+
+= link_to 'index', tasks_path
+
+table
+      tr
+        th Id
+        th Todo
+        th Done
+
+      - @task.subtasks.each do |subtask|
+         tr
+            td
+              = subtask.id
+            td
+              = subtask.name
+            td
+              = subtask.done
+            td
+              = link_to 'Show', task_subtask_path(@task, subtask)
+            td
+              = link_to 'Edit', edit_task_subtask_path(@task, subtask)
+            td
+              = link_to 'Add', new_task_subtask_path(@task, subtask)
+            td
+              = link_to 'Delete', task_subtask_path(@task, subtask), method: :delete, data: {confirm: 'confirm delete'}

@@ -1,0 +1,11 @@
+= form_with(model: [ @task, @subtask], local: true) do |form|
+
+  = form.label :subtask
+  br
+  = form.text_field :name
+  br
+  = form.label :'task done'
+  br
+  = form.check_box :done
+  br
+  = form.submit
